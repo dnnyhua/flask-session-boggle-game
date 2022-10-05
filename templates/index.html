@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/static/boggle.css">
+</head>
+<body>
+  <section>
+
+    <p>High Score: {{highscore}} </p>
+
+    <p>Number of Plays: {{num_of_plays}}</p>
+
+    <table class="gameBoard">
+      <tbody>
+        {% for row in game_board %}
+        <tr>
+          {% for cell in row %}
+          <td>{{cell}}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  
+    <form  id="form-add-word">
+      <input type="text" name="inputWord" class="inputWord">
+      <button id="submitBtn">Enter</button>
+    </form>
+
+    <p>Current Score: <b class="score">0</b></p>
+    <p>Time Left: <b class="timer"></b></p>
+    
+    <p class="msg">
+      <!-- Messages will go here ie when duplicate words are entered -->
+    </p>
+
+    <ul class="wordsList">
+      <!-- Valid words will be added here -->
+    </ul>
+
+  </section>
+
+  
+  
+
+<script src="http://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="/static/boggle.js"></script>
+
+<!-- can make a new instance of the game here or on the JS file -->
+<script>
+  let game = new BoggleGame(game_length=60)
+  
+</script>
+</body>
+</html>
